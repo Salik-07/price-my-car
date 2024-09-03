@@ -6,5 +6,11 @@ import { CreateReportDTO } from './dtos/create-report.dto';
 
 @Injectable()
 export class ReportsService {
-  create(reportDto: CreateReportDTO) {}
+  constructor(@InjectRepository(Reports) private repo: Repository<Reports>) {}
+
+  create(reportDto: CreateReportDTO) {
+    const report = this.repo.create(reportDto);
+
+    return this.repo.save(report);
+  }
 }
