@@ -9,6 +9,9 @@ export class ReportDTO {
   make: string;
 
   @Expose()
+  approved: boolean;
+
+  @Expose()
   model: string;
 
   @Expose()
